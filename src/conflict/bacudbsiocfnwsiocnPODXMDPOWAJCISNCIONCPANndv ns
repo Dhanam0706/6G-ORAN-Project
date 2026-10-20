@@ -1,0 +1,38 @@
+                                         Table "public.run"
+   Column   |           Type           | Collation | Nullable |               Default               
+------------+--------------------------+-----------+----------+-------------------------------------
+ run_id     | bigint                   |           | not null | nextval('run_run_id_seq'::regclass)
+ label      | text                     |           | not null | 
+ started_at | timestamp with time zone |           | not null | now()
+ ended_at   | timestamp with time zone |           |          | 
+ period_ms  | integer                  |           | not null | 
+ notes      | text                     |           |          | 
+Indexes:
+    "run_pkey" PRIMARY KEY, btree (run_id)
+Referenced by:
+    TABLE "collector_health" CONSTRAINT "collector_health_run_id_fkey" FOREIGN KEY (run_id) REFERENCES run(run_id) ON DELETE CASCADE
+    TABLE "gtp_ue" CONSTRAINT "gtp_ue_run_id_fkey" FOREIGN KEY (run_id) REFERENCES run(run_id) ON DELETE CASCADE
+    TABLE "_timescaledb_internal._hyper_2_16_chunk" CONSTRAINT "gtp_ue_run_id_fkey" FOREIGN KEY (run_id) REFERENCES run(run_id) ON DELETE CASCADE
+    TABLE "_timescaledb_internal._hyper_2_4_chunk" CONSTRAINT "gtp_ue_run_id_fkey" FOREIGN KEY (run_id) REFERENCES run(run_id) ON DELETE CASCADE
+    TABLE "_timescaledb_internal._hyper_2_12_chunk" CONSTRAINT "gtp_ue_run_id_fkey" FOREIGN KEY (run_id) REFERENCES run(run_id) ON DELETE CASCADE
+    TABLE "_timescaledb_internal._hyper_2_8_chunk" CONSTRAINT "gtp_ue_run_id_fkey" FOREIGN KEY (run_id) REFERENCES run(run_id) ON DELETE CASCADE
+    TABLE "_timescaledb_internal._hyper_1_5_chunk" CONSTRAINT "mac_ue_run_id_fkey" FOREIGN KEY (run_id) REFERENCES run(run_id) ON DELETE CASCADE
+    TABLE "_timescaledb_internal._hyper_1_9_chunk" CONSTRAINT "mac_ue_run_id_fkey" FOREIGN KEY (run_id) REFERENCES run(run_id) ON DELETE CASCADE
+    TABLE "_timescaledb_internal._hyper_1_1_chunk" CONSTRAINT "mac_ue_run_id_fkey" FOREIGN KEY (run_id) REFERENCES run(run_id) ON DELETE CASCADE
+    TABLE "_timescaledb_internal._hyper_1_13_chunk" CONSTRAINT "mac_ue_run_id_fkey" FOREIGN KEY (run_id) REFERENCES run(run_id) ON DELETE CASCADE
+    TABLE "mac_ue" CONSTRAINT "mac_ue_run_id_fkey" FOREIGN KEY (run_id) REFERENCES run(run_id) ON DELETE CASCADE
+    TABLE "model_deployment" CONSTRAINT "model_deployment_run_id_fkey" FOREIGN KEY (run_id) REFERENCES run(run_id) ON DELETE CASCADE
+    TABLE "ran_model_version" CONSTRAINT "model_version_trained_from_run_fkey" FOREIGN KEY (trained_from_run) REFERENCES run(run_id) ON DELETE SET NULL
+    TABLE "_timescaledb_internal._hyper_4_7_chunk" CONSTRAINT "pdcp_bearer_run_id_fkey" FOREIGN KEY (run_id) REFERENCES run(run_id) ON DELETE CASCADE
+    TABLE "_timescaledb_internal._hyper_4_3_chunk" CONSTRAINT "pdcp_bearer_run_id_fkey" FOREIGN KEY (run_id) REFERENCES run(run_id) ON DELETE CASCADE
+    TABLE "_timescaledb_internal._hyper_4_11_chunk" CONSTRAINT "pdcp_bearer_run_id_fkey" FOREIGN KEY (run_id) REFERENCES run(run_id) ON DELETE CASCADE
+    TABLE "pdcp_bearer" CONSTRAINT "pdcp_bearer_run_id_fkey" FOREIGN KEY (run_id) REFERENCES run(run_id) ON DELETE CASCADE
+    TABLE "_timescaledb_internal._hyper_4_15_chunk" CONSTRAINT "pdcp_bearer_run_id_fkey" FOREIGN KEY (run_id) REFERENCES run(run_id) ON DELETE CASCADE
+    TABLE "policy_run" CONSTRAINT "policy_run_run_id_fkey" FOREIGN KEY (run_id) REFERENCES run(run_id) ON DELETE CASCADE
+    TABLE "_timescaledb_internal._hyper_3_6_chunk" CONSTRAINT "rlc_bearer_run_id_fkey" FOREIGN KEY (run_id) REFERENCES run(run_id) ON DELETE CASCADE
+    TABLE "rlc_bearer" CONSTRAINT "rlc_bearer_run_id_fkey" FOREIGN KEY (run_id) REFERENCES run(run_id) ON DELETE CASCADE
+    TABLE "_timescaledb_internal._hyper_3_2_chunk" CONSTRAINT "rlc_bearer_run_id_fkey" FOREIGN KEY (run_id) REFERENCES run(run_id) ON DELETE CASCADE
+    TABLE "_timescaledb_internal._hyper_3_14_chunk" CONSTRAINT "rlc_bearer_run_id_fkey" FOREIGN KEY (run_id) REFERENCES run(run_id) ON DELETE CASCADE
+    TABLE "_timescaledb_internal._hyper_3_10_chunk" CONSTRAINT "rlc_bearer_run_id_fkey" FOREIGN KEY (run_id) REFERENCES run(run_id) ON DELETE CASCADE
+    TABLE "ue_session" CONSTRAINT "ue_session_run_id_fkey" FOREIGN KEY (run_id) REFERENCES run(run_id) ON DELETE CASCADE
+

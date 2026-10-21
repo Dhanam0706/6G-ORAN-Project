@@ -1,0 +1,25 @@
+# Secrets/local configuration
+.env
+.env.*
+!.env.example
+
+# Python environments and generated files
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Local logs/results/data exports
+*.log
+*.out
+results/
+outputs/
+*.sql
+*.dump
+*.bak
+*.csv
+*.parquet

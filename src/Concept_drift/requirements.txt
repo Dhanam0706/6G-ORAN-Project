@@ -1,0 +1,6 @@
+pandas
+psycopg2-binary
+river
+langchain-core
+langchain-google-genai
+langgraph
